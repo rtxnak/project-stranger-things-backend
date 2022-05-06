@@ -17,10 +17,12 @@ const strangerThingsService = new StrangerThingsService(
 
 app.use(cors());
 
-const hereIsTheUpsideDown = process.env.UPSIDEDOWN_MODE;
+const UPSIDEDOWN_MODE_BOOLEAN = process.env.UPSIDEDOWN_MODE === 'true';
 
-console.log(typeof (hereIsTheUpsideDown));
-console.log(hereIsTheUpsideDown);
+const hereIsTheUpsideDown = UPSIDEDOWN_MODE_BOOLEAN;
+
+// console.log(typeof (hereIsTheUpsideDown));
+// console.log(hereIsTheUpsideDown);
 
 app.get('/', (req, res) => {
   const characters = strangerThingsService.search(
